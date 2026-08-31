@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Milky Cantikku! 🤍</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Sacramento&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Animasi Background Hati Interaktif -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <!-- HALAMAN PEMBUKA (LANDING PAGE) DENGAN TOMBOL KLIK -->
+    <div class="container" id="landingCard">
+        <div class="badge-tag">✨ Special Gift For You ✨</div>
+        <h1 style="font-size: 4rem; margin-top: 10px;">Hi, Milky! 🤍</h1>
+        <p style="color: #551a31; font-weight: 500; font-size: 1rem; margin: 15px 0 25px 0;">
+            Ada sesuatu nih buat kamu yang lagi ulang tahun hari ini. Mau dibuka atau nggak? 🤭🎁
+        </p>
+        <button class="btn btn-yes" onclick="bukaKado()" style="font-size: 1.1rem; padding: 14px 35px;">
+            Buka Kado Sekarang 💌
+        </button>
+    </div>
+
+    <!-- KARTU UTAMA UCAPAN (Awalnya disembunyikan, muncul setelah tombol diklik) -->
+    <div class="container" id="mainCard" style="display: none;">
+        <!-- FOTO UTAMA MILKY -->
+        <div class="photo-frame">
+            <img src="milky.jpg" alt="Milky Cantik" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&auto=format&fit=crop&q=60'">
+            <div class="photo-glow"></div>
+        </div>
+
+        <div class="badge-tag">✨ Special Birthday Edition ✨</div>
+        <h1>Happy Birthday, Milky! 🤍</h1>
+        <div class="subtitle">Untuk bidadari kecilku yang paling manis & spesial</div>
+
+        <div class="message-box">
+            <p>Hai Milky sayang... Selamat ulang tahun ya cantikku! 🎉🎂</p>
+            <p>Gak terasa ya waktu cepat banget berlalu. Aku bersyukur banget semesta menghadirkan kamu ke dunia ini, dan yang paling utama, mempertemukan jalan kita berdua. Kehadiran kamu di hidup aku itu ibarat kepingan puzzle yang pas—bikin hari-hari aku yang tadinya biasa aja jadi jauh lebih berwarna, penuh tawa, dan bermakna.</p>
+            <p>Makasih ya sudah jadi perempuan hebat, sabar, dan selalu ngertiin aku dalam kondisi apapun. Maaf kalau kadang aku bikin kesel atau rewel, tapi cintaku ke kamu itu fix gak ada duanya dan gak akan pernah luntur. Di umur yang baru ini, aku mendoakan semoga semua impian, cita-cita, dan hal-hal baik yang kamu semogakan bisa disegerakan oleh Tuhan Yang Maha Esa.</p>
+            <p>Tetap jadi Milky yang ceria, gemesin, dan sayang sama aku terus ya. Apapun rintangan di depan, yuk kita lewati bareng-bareng. I love you so much, gorgeous! You mean the absolute world to me! 💖✨🌹</p>
+        </div>
+
+        <div class="question-section" id="tanyaSection">
+            <p id="teksPertanyaan">Milky sayang kan sama aku? 🥺💕</p>
+            <div class="btn-group" id="btnGroup">
+                <button class="btn btn-yes" id="btnYes" onclick="jawabIya()">Sayang Banget! 😍</button>
+                <button class="btn btn-no" id="btnNo" onmouseover="lari()" onclick="lari()">Nggak wlee 😜</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- GALERI FOTO DIRECTOR'S CUT -->
+    <div class="gallery-container" id="galleryContainer" style="display: none;">
+        <div class="gallery-header">
+            <h2>🎬 Director's Cut: Our Best Moments 🤍</h2>
+            <p>Setiap frame bareng kamu adalah adegan terindah di hidup aku.</p>
+        </div>
+        <div class="film-strip">
+            <div class="polaroid-card">
+                <img src="firstlaugh.png" alt="Memory 1" onerror="this.src='https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500&auto=format&fit=crop&q=60'">
+                <span>Scene 01: Our First Laugh ✨</span>
+            </div>
+            <div class="polaroid-card">
+                <img src="smile.png" alt="Memory 2" onerror="this.src='https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=500&auto=format&fit=crop&q=60'">
+                <span>Scene 02: Sweetest Smile 🤍</span>
+            </div>
+            <div class="polaroid-card">
+                <img src="sweetyheart.png" alt="Memory 3" onerror="this.src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=60'">
+                <span>Scene 03: My Favorite Person 🌹</span>
+            </div>
+            <div class="polaroid-card">
+                <img src="carry.png" alt="Memory 4" onerror="this.src='https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=500&auto=format&fit=crop&q=60'">
+                <span>Scene 04: Forever With You 🎬</span>
+            </div>
+        </div>
+        <!-- TOMBOL NEXT SCENE UNTUK MEMUTAR NOTEKU.MP3 -->
+        <button class="btn btn-yes" style="margin-top: 25px;" onclick="nextToVoiceNote()">Special Buat Darling My Kisah</button>
+    </div>
+
+    <!-- HALAMAN PENUTUP VOICE NOTE (NOTEKU) -->
+    <div class="gallery-container" id="voiceContainer" style="display: none; text-align: center;">
+        <div class="gallery-header">
+            <h2>🎙️ Special Voice Note For You</h2>
+            <p style="margin-top: 15px; font-size: 1rem; color: #551a31; margin-bottom: 20px;">
+                "Dengerin rekaman suara aku ini ya, khusus buat ulang tahun kamu hari ini! 🤍✨"
+            </p>
+            
+            <!-- AUDIO PLAYER UNTUK NOTEKU -->
+            <audio id="audioNoteku" controls style="width: 100%; margin-bottom: 20px;">
+                <source src="Kecupmanisnyamana.mp3" type="audio/mp3">
+                Browser kamu tidak mendukung pemutar audio.
+            </audio>
+        </div>
+        <button class="btn btn-yes" onclick="location.reload()">Ulang Dari Awal 🔄</button>
+    </div>
+
+    <footer>
+        Created with absolute love & passion by <span>Xelocy Project</span> © 2026
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
