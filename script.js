@@ -67,14 +67,14 @@ function jawabIya() {
         teks.innerHTML = "Masaaa beneran sayang? Coba buktikan dulu dengan senyuman tercantikmu dong! 🤨❤️";
         btnGroup.innerHTML = `
             <button class="btn btn-yes" onclick="jawabIya()">Beneran kok, sumpah! 🥰</button>
-            <button class="btn btn-no" id="btnNo" onmouseover="lari()" onclick="lari()">Nggak wlee 😛</button>
+            <button class="btn btn-no" id="btnNo" onmouseover="lari()" ontouchstart="lari()" onclick="lari()">Nggak wlee 😛</button>
         `;
         tahap = 1;
     } else if (tahap === 1) {
         teks.innerHTML = "Yaudah kalau beneran sayang, janji ya gak bakal ninggalin dan bikin aku sedih lagi? 🥺✨";
         btnGroup.innerHTML = `
             <button class="btn btn-yes" onclick="jawabIya()">Janji selamanya! 🤞🤍</button>
-            <button class="btn btn-no" id="btnNo" onmouseover="lari()" onclick="lari()">Nggak wlee 😛</button>
+            <button class="btn btn-no" id="btnNo" onmouseover="lari()" ontouchstart="lari()" onclick="lari()">Nggak wlee 😛</button>
         `;
         tahap = 2;
     } else {
@@ -92,20 +92,30 @@ function jawabIya() {
     }
 }
 
-// Fungsi untuk pindah ke halaman voice note (noteku.mp3)
+// Fungsi untuk pindah ke halaman voice note dengan efek getar layar & berubah jadi hitam pekat
 function nextToVoiceNote() {
     const galleryContainer = document.getElementById("galleryContainer");
     const voiceContainer = document.getElementById("voiceContainer");
     const audioNoteku = document.getElementById("audioNoteku");
 
+    // 1. Berikan efek layar bergetar ke seluruh body
+    document.body.classList.add("shake-effect");
+
+    // 2. Transisi galeri mengecil
     galleryContainer.style.transition = "all 0.5s ease";
     galleryContainer.style.transform = "scale(0)";
     
     setTimeout(() => {
         galleryContainer.style.display = "none";
+        
+        // 3. Ubah background layar secara bertahap jadi hitam pekat (fade to dark)
+        document.body.classList.add("dark-fade-mode");
+        document.body.classList.remove("shake-effect");
+
+        // 4. Munculkan halaman voice note / audio
         voiceContainer.style.display = "block";
 
-        // Putar file rekaman suara noteku.mp3 secara otomatis
+        // Putar file rekaman suara secara otomatis
         if (audioNoteku) {
             audioNoteku.play().catch(error => {
                 console.log("Autoplay dicegah browser, silakan klik tombol Play manual.", error);
